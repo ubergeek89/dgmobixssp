@@ -16,7 +16,7 @@ import uuid
 import tornado.ioloop
 import tornado.web
 import tornado.httpclient
-import GeoIP
+import pygeoip
 
 from urlparse import urlparse
 from tornado.web import asynchronous
