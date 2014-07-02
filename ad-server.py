@@ -42,7 +42,7 @@ class MainHandler(tornado.web.RequestHandler):
             
     def serve(self,info):
         self.write("i am ok - serve")
-        self.write(random.randrange(10,100))
+        self.write(str(random.randrange(10,100)))
         self.finish()
 
     def click(self,info):
