@@ -25,6 +25,7 @@ from tornado.options import define, options
 
 class MainHandler(tornado.web.RequestHandler):
     def get(self):
+	self.set_header("Cache-control", "no-cache")
         if self.request.path == "/serve":
             self.serve(self.request.query)
         if self.request.path == "/click":
