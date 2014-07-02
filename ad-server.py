@@ -26,9 +26,6 @@ from tornado.options import define, options
 
 class MainHandler(tornado.web.RequestHandler):
     def get(self):
-	#No client side caching whatsoever
-	self.set_header("Cache-control", "no-cache")
-
         if self.request.path == "/":
             self.write("Nothing special here. Go <a href='http://google.com'>here</a>")	
         if self.request.path == "/serve":
@@ -45,8 +42,16 @@ class MainHandler(tornado.web.RequestHandler):
             self.healthcheck(self.request.query)
             
     def serve(self,info):
-        #make every response unique by using a random number
-        self.write(str(random.randrange(10,100)))      
+	self.set_header("Cache-Control","no-cache")
+	self.set_header("Pragma","no-cache")      
+        plid = self.get_argument('plid')
+        paid = self.get_argument('paid')
+        width = self.get_argument('width')
+        height = self.get_argument('height')
+	print plid
+	print paid
+	print width
+	print height
         self.write("i am ok - serve")
         self.finish()
 
