@@ -46,8 +46,8 @@ class MainHandler(tornado.web.RequestHandler):
 	self.set_header("Pragma","no-cache")      
         plid = self.get_argument('plid')
         paid = self.get_argument('paid')
-        width = self.get_argument('width')
-        height = self.get_argument('height')
+        width = self.get_argument('w')
+        height = self.get_argument('h')
 	print plid
 	print paid
 	print width
