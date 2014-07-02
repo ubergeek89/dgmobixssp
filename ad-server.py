@@ -3,6 +3,7 @@
 # SET SERVER TIMEZONE to IST
 
 from random import choice
+import random
 import time
 import hashlib
 import re
@@ -41,6 +42,7 @@ class MainHandler(tornado.web.RequestHandler):
             
     def serve(self,info):
         self.write("i am ok - serve")
+        self.write(random.randrange(10,100))
         self.finish()
 
     def click(self,info):
