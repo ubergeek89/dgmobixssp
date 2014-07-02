@@ -83,8 +83,8 @@ adIndex = dict()
 
 if __name__ == "__main__":
     print "starting server name="+options.name
-    print "refreshing cache first time"
-    refreshCache()
+    #print "refreshing cache first time"
+    #refreshCache()
     tornado.options.parse_command_line()
     server_settings = {
 	"xheaders" : True,
