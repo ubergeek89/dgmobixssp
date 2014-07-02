@@ -41,6 +41,7 @@ class MainHandler(tornado.web.RequestHandler):
             
     def serve(self,info):
         self.write("i am ok - serve")
+        self.finish()
 
     def click(self,info):
         self.write("i am ok - click")
