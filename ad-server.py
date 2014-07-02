@@ -77,8 +77,8 @@ define("refreshCache", default=5000, help="millisecond interval between cache re
 
 application = tornado.web.Application([(r".*", MainHandler),])
 adIndex = dict()
-gi = GeoIP.open("/usr/share/GeoIP/GeoIPISP.dat",GeoIP.GEOIP_STANDARD)
-gi_city = GeoIP.open("/usr/share/GeoIP/GeoIPCityin.dat",GeoIP.GEOIP_STANDARD)
+#gi = GeoIP.open("/usr/share/GeoIP/GeoIPISP.dat",GeoIP.GEOIP_STANDARD)
+#gi_city = GeoIP.open("/usr/share/GeoIP/GeoIPCityin.dat",GeoIP.GEOIP_STANDARD)
 
 
 if __name__ == "__main__":
