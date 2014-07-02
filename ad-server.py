@@ -39,22 +39,22 @@ class MainHandler(tornado.web.RequestHandler):
             self.healthcheck(self.request.query)
             
     def serve(self,info):
-        self.write("i am ok")
+        self.write("i am ok - serve")
 
     def click(self,info):
-        self.write("i am ok")
+        self.write("i am ok - click")
 
     def visit(self,info):
-        self.write("i am ok")
+        self.write("i am ok - visit")
 
     def install(self,info):
-        self.write("i am ok")
+        self.write("i am ok - install")
         
     def download(self,info):
-        self.write("i am ok")
+        self.write("i am ok - download")
         
     def healthcheck(self,info):
-        self.write("i am ok")
+        self.write("i am ok - healthcheck")
             
     def sendToLogAgent(self,message):
 	print message
