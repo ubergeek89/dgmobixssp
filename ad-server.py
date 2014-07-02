@@ -90,5 +90,5 @@ if __name__ == "__main__":
 	"xheaders" : True,
     }    
     application.listen(options.port, **server_settings)
-    tornado.ioloop.PeriodicCallback(refreshCache, options.refreshCache).start()
+   # tornado.ioloop.PeriodicCallback(refreshCache, options.refreshCache).start()
     tornado.ioloop.IOLoop.instance().start()
