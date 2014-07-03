@@ -71,10 +71,10 @@ class MainHandler(tornado.web.RequestHandler):
 	      "creativeId":creativeId,
 	      "timestamp":timestamp,
 	      "ipaddress":self.request.headers['X-Forwarded-For'],
-	      "useragent":self.request.headers['User-Agent'],	      
+	      "useragent":self.request.headers['User-Agent'],
 	      "cost":0.83
 	  })
-	  print message
+	  self.sendToLogAgent(message)
 	  self.write(tagCode)
 	  
 	self.finish()	  
