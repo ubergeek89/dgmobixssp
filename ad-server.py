@@ -83,9 +83,9 @@ class MainHandler(tornado.web.RequestHandler):
     def click(self,info):
         placementId = int(self.get_argument('plid'))
         supplyPartnerId = int(self.get_argument('paid'))
-        campaignId=int(self.argument('caid'))
-        creativeId=int(self.argument('crid'))        
-        demandPartnerId=int(self.argument('dpid'))        
+        campaignId=int(self.get_argument('caid'))
+        creativeId=int(self.get_argument('crid'))        
+        demandPartnerId=int(self.get_argument('dpid'))        
 	ta = self.request.query.split("&red=")
 	redirectUrl = ta[1]
 	timestamp=datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")	
