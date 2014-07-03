@@ -48,14 +48,12 @@ class MainHandler(tornado.web.RequestHandler):
         supplyPartnerId = self.get_argument('paid')
         width = int(self.get_argument('w'))
         height = int(self.get_argument('h'))
-	print width
-	print height
 
 	if width==300 and height==250:
 	  demandPartnerId=26
 	  campaignId=36
 	  creativeId=9
-	  creativeUrl="http://rtb.dgmobix.com/creatives/jawani_pack_99_300x250.gif"
+	  creativeUrl="http://rtbcreative.dgmobix.com/creatives/jawani_pack_99_300x250.gif"
 	  destinationUrl="http://clk.dgmobix.com/clks/clk_t.php?tagid=141680973__cb=INSERT_RANDOM_NUMBER_HERE"
 	  timestamp=datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 	  clickUrl="http://rtbserver.dgmobix.com/click?paid="+str(supplyPartnerId)+"&plid="+str(placementId)+"&caid="+str(campaignId)+"&crid="+str(creativeId)+"&dpid="+str(demandPartnerId)+"&red="+destinationUrl
@@ -66,14 +64,13 @@ class MainHandler(tornado.web.RequestHandler):
 	      "demandPartnerId":demandPartnerId,
 	      "campaign":campaignId,
 	      "creativeId":creativeId,
-	      "timestamp":timestamp
+	      "timestamp":timestamp,
+	      "cost":0.83
 	  })
 	  print message
-	  print ""
-	  print tagCode
+	  self.write(tagCode)
 	  
-        self.write("i am ok - serve")
-        self.finish()
+	self.finish()	  
 
     def click(self,info):
         self.write("i am ok - click")
