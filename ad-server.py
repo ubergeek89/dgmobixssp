@@ -72,6 +72,7 @@ class MainHandler(tornado.web.RequestHandler):
 	      "timestamp":timestamp,
 	      "ipaddress":self.request.headers['X-Forwarded-For'],
 	      "useragent":self.request.headers['User-Agent'],
+	      "revenue":0,
 	      "cost":0.83
 	  })
 	  self.sendToLogAgent(message)
@@ -80,8 +81,28 @@ class MainHandler(tornado.web.RequestHandler):
 	self.finish()	  
 
     def click(self,info):
-        self.redirect("http://clk.dgmobix.com/clks/clk_t.php?tagid=141680973__cb=INSERT_RANDOM_NUMBER_HERE")        
-
+        placementId = int(self.get_argument('plid'))
+        supplyPartnerId = int(self.get_argument('paid'))
+        campaignId=int(self.argument('caid'))
+        creativeId=int(self.argument('crid'))        
+        demandPartnerId=int(self.argument('dpid'))        
+	ta = self.request.query.split("&red=")
+	redirectUrl = ta[1]
+	timestamp=datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")	
+	message=json.dumps({"message":"click",
+	    "placementId":placementId,
+	    "supplyPartnerId":supplyPartnerId,
+	    "demandPartnerId":demandPartnerId,
+	    "campaignId":campaignId,
+	    "creativeId":creativeId,
+	    "timestamp":timestamp,
+	    "revenue":0.01,
+	    "cost":0
+	})
+	self.sendToLogAgent(message)
+	self.redirect(redirectUrl)
+	self.finish()
+        
     def visit(self,info):
         self.write("i am ok - visit")
 
