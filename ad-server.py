@@ -101,7 +101,6 @@ class MainHandler(tornado.web.RequestHandler):
 	})
 	self.sendToLogAgent(message)
 	self.redirect(redirectUrl)
-	self.finish()
         
     def visit(self,info):
         self.write("i am ok - visit")
