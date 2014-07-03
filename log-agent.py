@@ -69,7 +69,7 @@ class MainHandler(tornado.web.RequestHandler):
                 fileContent = open(logFolder+'/'+fileName).read()
                 self.write(fileContent)
                 try:
-                    os.remove(logFolder+'/'+fileName)
+                    #os.remove(logFolder+'/'+fileName)
                     lf = open(loggerLog,'a')
                     lf.write("\n"+fileName+" has been successfully  sent to report agent at time = "+
                     str(strftime("%Y-%m-%d %H:%M:%S", gmtime()))+" and successfully deleted " )

@@ -1,5 +1,5 @@
 # ADSERVER Request Format
-#INSTALL - TORNADO, GEOIP
+# INSTALL - TORNADO, GEOIP
 # SET SERVER TIMEZONE to IST
 
 from random import choice
