@@ -80,7 +80,7 @@ class MainHandler(tornado.web.RequestHandler):
 	self.finish()	  
 
     def click(self,info):
-        self.write("i am ok - click")
+        self.redirect("http://clk.dgmobix.com/clks/clk_t.php?tagid=141680973__cb=INSERT_RANDOM_NUMBER_HERE")        
 
     def visit(self,info):
         self.write("i am ok - visit")
