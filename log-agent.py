@@ -47,8 +47,10 @@ class MainHandler(tornado.web.RequestHandler):
                 raise e
         
     def poll(self):
+	print "poll request"
         try:
             allFiles = [ f for f in listdir(logFolder) if isfile(join(logFolder,f)) ]
+            print allFiles
             if allFiles:
                 self.write(json.dumps({"FileList":allFiles}))
                 lf = open(loggerLog,'a')
