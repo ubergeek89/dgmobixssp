@@ -44,14 +44,34 @@ class MainHandler(tornado.web.RequestHandler):
     def serve(self,info):
 	self.set_header("Cache-Control","no-cache")
 	self.set_header("Pragma","no-cache")      
-        plid = self.get_argument('plid')
-        paid = self.get_argument('paid')
+        placementId = self.get_argument('plid')
+        supplyPartnerId = self.get_argument('paid')
         width = self.get_argument('w')
         height = self.get_argument('h')
-	print plid
-	print paid
 	print width
 	print height
+
+	if width=300 and height=250:
+	  demandPartnerId=26
+	  campaignId=36
+	  creativeId=9
+	  creativeUrl="http://rtb.dgmobix.com/creatives/jawani_pack_99_300x250.gif"
+	  destinationUrl="http://clk.dgmobix.com/clks/clk_t.php?tagid=141680973__cb=INSERT_RANDOM_NUMBER_HERE"
+	  timestamp=datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+	  clickUrl="http://rtbserver.dgmobix.com/click?paid="+supplyPartnerId+"&plid="+placementId+"&caid="+campaignId+"&crid="+creativeId+"&dpid="+demandPartnerId+"&red="+destinationUrl
+	  tagCode="<a href='"+clickUrl+"'><img src='"+creativeUrl+"'></a>"
+	  message=json.dumps({"message":"impression",
+	      "placementId":placementId,
+	      "supplyPartnerId":supplyPartnerId,
+	      "demandPartnerId":demandPartnerId,
+	      "campaign":campaignId,
+	      "creativeId":creativeId
+	      "timestamp":timestamp
+	  })
+	  print message
+	  print ""
+	  print tagCode
+	  
         self.write("i am ok - serve")
         self.finish()
 
