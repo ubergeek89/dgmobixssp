@@ -72,7 +72,6 @@ class MainHandler(tornado.web.RequestHandler):
 	      "campaign":campaignId,
 	      "creativeId":creativeId,
 	      "timestamp":timestamp,
-	      "ipaddress":
 	      "cost":0.83
 	  })
 	  print message
