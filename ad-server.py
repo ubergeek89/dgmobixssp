@@ -70,6 +70,8 @@ class MainHandler(tornado.web.RequestHandler):
 	    search_algorithm = TwoStepAnalysis(devices)
 	    device = devices.select_ua(self.request.headers['User-Agent'], search=search_algorithm)
 	    print device.brand_name
+	  except:
+	    print "excep1"
 	    
 	  message=json.dumps({"message":"impression",
 	      "placementId":placementId,
