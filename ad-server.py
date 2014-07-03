@@ -44,10 +44,17 @@ class MainHandler(tornado.web.RequestHandler):
     def serve(self,info):
 	self.set_header("Cache-Control","no-cache")
 	self.set_header("Pragma","no-cache")      
-        placementId = self.get_argument('plid')
-        supplyPartnerId = self.get_argument('paid')
+        placementId = int(self.get_argument('plid'))
+        supplyPartnerId = int(self.get_argument('paid'))
         width = int(self.get_argument('w'))
         height = int(self.get_argument('h'))
+        
+	ta = self.request.query.split("&red=")
+	thirdPartyUrl = ta[1]
+	if thirdPartyUrl=="CLICK_MACRO":
+	  thirdPartyUrl=""
+	  
+	print self.request.headers
 
 	if width==300 and height==250:
 	  demandPartnerId=26
@@ -56,7 +63,7 @@ class MainHandler(tornado.web.RequestHandler):
 	  creativeUrl="http://rtbcreative.dgmobix.com/creatives/jawani_pack_99_300x250.gif"
 	  destinationUrl="http://clk.dgmobix.com/clks/clk_t.php?tagid=141680973__cb=INSERT_RANDOM_NUMBER_HERE"
 	  timestamp=datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-	  clickUrl="http://rtbserver.dgmobix.com/click?paid="+str(supplyPartnerId)+"&plid="+str(placementId)+"&caid="+str(campaignId)+"&crid="+str(creativeId)+"&dpid="+str(demandPartnerId)+"&red="+destinationUrl
+	  clickUrl=thirdPartyUrl+"http://rtbserver.dgmobix.com/click?paid="+str(supplyPartnerId)+"&plid="+str(placementId)+"&caid="+str(campaignId)+"&crid="+str(creativeId)+"&dpid="+str(demandPartnerId)+"&red="+destinationUrl
 	  tagCode="<a href='"+clickUrl+"'><img src='"+creativeUrl+"'></a>"
 	  message=json.dumps({"message":"impression",
 	      "placementId":placementId,
@@ -65,6 +72,7 @@ class MainHandler(tornado.web.RequestHandler):
 	      "campaign":campaignId,
 	      "creativeId":creativeId,
 	      "timestamp":timestamp,
+	      "ipaddress":
 	      "cost":0.83
 	  })
 	  print message

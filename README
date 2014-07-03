@@ -1,0 +1,5 @@
+ADSERVER
+
+/serve is an impression request. Supplied data will be plid, paid, width, height. Sometimes language and category might be passed as well.
+
+
