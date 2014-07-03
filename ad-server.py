@@ -65,7 +65,7 @@ class MainHandler(tornado.web.RequestHandler):
 	      "supplyPartnerId":supplyPartnerId,
 	      "demandPartnerId":demandPartnerId,
 	      "campaign":campaignId,
-	      "creativeId":creativeId
+	      "creativeId":creativeId,
 	      "timestamp":timestamp
 	  })
 	  print message
