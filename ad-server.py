@@ -58,7 +58,7 @@ class MainHandler(tornado.web.RequestHandler):
 	  creativeUrl="http://rtb.dgmobix.com/creatives/jawani_pack_99_300x250.gif"
 	  destinationUrl="http://clk.dgmobix.com/clks/clk_t.php?tagid=141680973__cb=INSERT_RANDOM_NUMBER_HERE"
 	  timestamp=datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-	  clickUrl="http://rtbserver.dgmobix.com/click?paid="+supplyPartnerId+"&plid="+placementId+"&caid="+campaignId+"&crid="+creativeId+"&dpid="+demandPartnerId+"&red="+destinationUrl
+	  clickUrl="http://rtbserver.dgmobix.com/click?paid="+str(supplyPartnerId)+"&plid="+str(placementId)+"&caid="+str(campaignId)+"&crid="+str(creativeId)+"&dpid="+str(demandPartnerId)+"&red="+destinationUrl
 	  tagCode="<a href='"+clickUrl+"'><img src='"+creativeUrl+"'></a>"
 	  message=json.dumps({"message":"impression",
 	      "placementId":placementId,
