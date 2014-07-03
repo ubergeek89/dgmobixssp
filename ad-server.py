@@ -53,8 +53,6 @@ class MainHandler(tornado.web.RequestHandler):
 	thirdPartyUrl = ta[1]
 	if thirdPartyUrl=="CLICK_MACRO":
 	  thirdPartyUrl=""
-	  
-	print self.request.headers
 
 	if width==300 and height==250:
 	  demandPartnerId=26
