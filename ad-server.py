@@ -51,7 +51,7 @@ class MainHandler(tornado.web.RequestHandler):
 	print width
 	print height
 
-	if width=300 and height=250:
+	if width==300 and height==250:
 	  demandPartnerId=26
 	  campaignId=36
 	  creativeId=9
