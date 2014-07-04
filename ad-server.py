@@ -67,9 +67,9 @@ class MainHandler(tornado.web.RequestHandler):
 	  clickUrl=thirdPartyUrl+"http://rtbserver.dgmobix.com/click?paid="+str(supplyPartnerId)+"&plid="+str(placementId)+"&caid="+str(campaignId)+"&crid="+str(creativeId)+"&dpid="+str(demandPartnerId)+"&r="+str(randomno)+"&red="+destinationUrl
 	  tagCode="<a href='"+clickUrl+"'><img src='"+creativeUrl+"'></a>"
 
-	  search_algorithm = TwoStepAnalysis(devices)
-	  device = devices.select_ua(self.request.headers['User-Agent'], search=search_algorithm)
-	  print device.brand_name
+	  #search_algorithm = TwoStepAnalysis(devices)
+	  #device = devices.select_ua(self.request.headers['User-Agent'], search=search_algorithm)
+	  #print device.brand_name
 
 	    
 	  message=json.dumps({"message":"impression",
