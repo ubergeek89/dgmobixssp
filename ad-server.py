@@ -20,6 +20,7 @@ import tornado.ioloop
 import tornado.web
 import tornado.httpclient
 import pygeoip
+import pprint
 
 from urlparse import urlparse
 from tornado.web import asynchronous
@@ -129,7 +130,7 @@ class MainHandler(tornado.web.RequestHandler):
         self.write("i am ok - healthcheck")
             
     def sendToLogAgent(self,message):
-	print message
+	pprint.pprint(message)
         http = tornado.httpclient.AsyncHTTPClient()
         http.fetch('http://localhost:9000/access', method='POST',body=message,callback=None)
 
