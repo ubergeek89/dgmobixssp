@@ -69,7 +69,6 @@ class MainHandler(tornado.web.RequestHandler):
 
 	  search_algorithm = TwoStepAnalysis(devices)
 	  device = devices.select_ua(self.request.headers['User-Agent'].decode('unicode-escape'), search=search_algorithm)
-	  print device.brand_name
 
 	  message=json.dumps({"message":"impression",
 	      "placementId":placementId,
@@ -81,7 +80,14 @@ class MainHandler(tornado.web.RequestHandler):
 	      "ipaddress":self.request.headers['X-Forwarded-For'],
 	      "useragent":self.request.headers['User-Agent'],
 	      "revenue":0,
-	      "cost":0.83
+	      "cost":0.83,
+	      "device_brand_name":device.brand_name,
+	      "device_os":device.device_os,
+	      "device_is_tablet":device.is_tablet,
+	      "device_is_wireless_device":device.is_wireless_device,
+	      "device_manufacturer_name":device.manufacturer_name,
+	      "device_marketing_name":device.marketing_name,
+	      "device_model_name":device.model_name
 	  })
 	  self.sendToLogAgent(message)
 	  self.write(tagCode)
